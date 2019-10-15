@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <form #form="ngForm" (ngSubmit)="login(form)" method="post">
+      <ion-item>
+      
+        <ion-input
+          type="text"
+          name="username"
+          placeholder="Username"
+          ngModel
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+      
+        <ion-input type="password" name="password" ngModel></ion-input>
+      </ion-item>
+      <ion-button type="submit"  color="primary">Sing in</ion-button>
+      <ion-button color="medium" routerLink="/home" routerDirection="root">Back</ion-button>
+    </form>
+</ion-content>

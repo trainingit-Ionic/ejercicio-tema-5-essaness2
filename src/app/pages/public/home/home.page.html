@@ -3,10 +3,23 @@
     <ion-title>
       Home
     </ion-title>
+    
+    <ion-icon slot="end" name="person" *ngIf="this.authService.isLogged()" (click)="logoutClicked()"></ion-icon>
+    
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <p>Best app in world.</p>
-  <ion-button>Go To Login</ion-button>
+  <div *ngIf="!this.authService.isLogged()" >
+    <ion-button expand="block" routerLink="/login" routerDirection="root">Go To Login</ion-button>
+
+    <ion-button>Go To Login Modal</ion-button>
+  </div>
+  <div *ngIf="this.authService.isLogged()" >
+      <ion-button expand="block"  (click)="logoutClicked()">Logout</ion-button>
+      
+    </div>
+
+  
 </ion-content>

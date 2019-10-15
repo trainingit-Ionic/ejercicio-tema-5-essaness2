@@ -7,7 +7,8 @@ const routes: Routes = [
   { path: 'clients', loadChildren: './pages/private/clients/clients.module#ClientsPageModule' },
   { path: 'providers', loadChildren: './pages/private/providers/providers.module#ProvidersPageModule' },
   { path: 'orders', loadChildren: './pages/private/orders/orders.module#OrdersPageModule' },
-  { path: 'invoices', loadChildren: './pages/private/invoices/invoices.module#InvoicesPageModule' },
+  { path: 'invoices', loadChildren: './pages/private/invoices/invoices.module#InvoicesPageModule' },  { path: 'login', loadChildren: './pages/public/login/login.module#LoginPageModule' },
+
 ];
 
 @NgModule({
