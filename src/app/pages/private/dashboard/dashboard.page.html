@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+ 
+  <ion-card>
+    <ion-item href="/menu/invoices" class="activated">
+      <ion-icon name="wifi" slot="start"></ion-icon>
+      <ion-label>Invoices</ion-label>
+    </ion-item>
+
+    <ion-item href="/menu/orders">
+      <ion-icon name="wine" slot="start"></ion-icon>
+      <ion-label>Orders</ion-label>
+    </ion-item>
+
+    <ion-item  href="/menu/providers" class="activated">
+      <ion-icon name="warning" slot="start"></ion-icon>
+      <ion-label>Providers</ion-label>
+    </ion-item>
+
+    <ion-item  href="/menu/clients">
+      <ion-icon name="walk" slot="start"></ion-icon>
+      <ion-label>Clients</ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>

@@ -12,12 +12,12 @@
 <ion-content padding>
   <p>Best app in world.</p>
   <div *ngIf="!this.authService.isLogged()" >
-    <ion-button expand="block" routerLink="/login" routerDirection="root">Go To Login</ion-button>
+    <ion-button routerLink="/login" routerDirection="root">Go To Login</ion-button>
 
-    <ion-button>Go To Login Modal</ion-button>
+    <ion-button (click)="presentModal()">Go To Login Modal</ion-button>
   </div>
   <div *ngIf="this.authService.isLogged()" >
-      <ion-button expand="block"  (click)="logoutClicked()">Logout</ion-button>
+      <ion-button  (click)="logoutClicked()">Logout</ion-button>
       
     </div>
 

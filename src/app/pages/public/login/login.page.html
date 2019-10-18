@@ -1,25 +1,40 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title></ion-title>
+    <ion-icon name="close-circle" slot="end" (click)="dismiss()"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-    <form #form="ngForm" (ngSubmit)="login(form)" method="post">
-      <ion-item>
+  <ion-card>
+      <ion-card-header>         
+          <ion-card-title ><div style="text-align: center"><b>LOGIN</b></div></ion-card-title>
+         
+        </ion-card-header>
       
-        <ion-input
-          type="text"
-          name="username"
-          placeholder="Username"
-          ngModel
-        ></ion-input>
-      </ion-item>
-      <ion-item>
-      
-        <ion-input type="password" name="password" ngModel></ion-input>
-      </ion-item>
-      <ion-button type="submit"  color="primary">Sing in</ion-button>
-      <ion-button color="medium" routerLink="/home" routerDirection="root">Back</ion-button>
-    </form>
+        <ion-card-content>
+        <form #form="ngForm" (ngSubmit)="login(form)" method="post">
+            <img src="../../../../assets/imageLogin.jpg">
+            <ion-label>Credenciales: curso/ionic</ion-label>
+            <ion-item>
+                <ion-icon name="person" slot="start"></ion-icon>
+              <ion-input
+                type="text"
+                name="username"
+                placeholder="Username"
+                ngModel
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="key" slot="start"></ion-icon>
+              <ion-input [type]="passwordType" name="password" ngModel></ion-input>
+              <ion-icon name="eye" [color]="passwordShow === true ? 'dark':'gray'" slot="end" (click)="togglePassword()"></ion-icon>
+            </ion-item>
+            <ion-button type="submit"  expand="block" color="primary">Sing in</ion-button>
+            <ion-button color="medium" expand="block" routerLink="/home" routerDirection="root">Back</ion-button>
+            
+          </form>
+    </ion-card-content>
+  </ion-card>
+    
 </ion-content>
