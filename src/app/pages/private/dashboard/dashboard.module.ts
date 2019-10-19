@@ -10,12 +10,14 @@ import { DashboardPage } from './dashboard.page';
 const routes: Routes = [
   {
     path: '',
-    component: DashboardPage
-  },
-  { path: 'clients', loadChildren: './pages/private/clients/clients.module#ClientsPageModule' },
-  { path: 'providers', loadChildren: './pages/private/providers/providers.module#ProvidersPageModule' },
-  { path: 'orders', loadChildren: './pages/private/orders/orders.module#OrdersPageModule' },
-  { path: 'invoices', loadChildren: './pages/private/invoices/invoices.module#InvoicesPageModule' },
+    component: DashboardPage,
+    children:[
+      { path: 'clients', loadChildren: './pages/private/clients/clients.module#ClientsPageModule' },
+      { path: 'providers', loadChildren: './pages/private/providers/providers.module#ProvidersPageModule' },
+      { path: 'orders', loadChildren: './pages/private/orders/orders.module#OrdersPageModule' },
+      { path: 'invoices', loadChildren: './pages/private/invoices/invoices.module#InvoicesPageModule' }
+      ]
+  }
 ];
 
 @NgModule({
