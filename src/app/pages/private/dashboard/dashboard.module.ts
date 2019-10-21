@@ -12,11 +12,44 @@ const routes: Routes = [
     path: '',
     component: DashboardPage,
     children: [
-      { path: 'clients', loadChildren: './pages/private/clients/clients.module#ClientsPageModule' },
-      { path: 'providers', loadChildren: './pages/private/providers/providers.module#ProvidersPageModule' },
-      { path: 'orders', loadChildren: './pages/private/orders/orders.module#OrdersPageModule' },
-      { path: 'invoices', loadChildren: './pages/private/invoices/invoices.module#InvoicesPageModule' }
-      ]
+      {
+        path: 'clients',
+        children: [
+          {
+            path: '',
+            loadChildren: '../clients/clients.module#ClientsPageModule'
+          }
+        ]
+      },
+      {
+        path: 'providers',
+        children: [
+          {
+            path: '',
+            loadChildren: '../providers/providers.module#ProvidersPageModule'
+          }
+        ]
+      },
+      {
+        path: 'orders',
+        children: [
+          {
+            path: '',
+            loadChildren: '../orders/orders.module#OrdersPageModule'
+          }
+        ]
+      },
+      {
+        path: 'invoices',
+        children: [
+          {
+            path: '',
+            loadChildren: '../invoices/invoices.module#InvoicesPageModule'
+          }
+        ]
+      }
+
+    ]
   }
 ];
 
