@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardPage,
-    children:[
+    children: [
       { path: 'clients', loadChildren: './pages/private/clients/clients.module#ClientsPageModule' },
       { path: 'providers', loadChildren: './pages/private/providers/providers.module#ProvidersPageModule' },
       { path: 'orders', loadChildren: './pages/private/orders/orders.module#OrdersPageModule' },
