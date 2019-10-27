@@ -4,19 +4,19 @@
       Home
     </ion-title>
     
-    <ion-icon slot="end" name="person" *ngIf="this.authService.isLogged()" (click)="logoutClicked()"></ion-icon>
+    <ion-icon slot="end" name="person" *ngIf="isLogged " (click)="logoutClicked()"></ion-icon>
     
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <p>Best app in world.</p>
-  <div *ngIf="!this.authService.isLogged()" >
+  <div *ngIf="!isLogged()" >
     <ion-button routerLink="/login" routerDirection="root">Go To Login</ion-button>
 
     <ion-button (click)="presentModal()">Go To Login Modal</ion-button>
   </div>
-  <div *ngIf="this.authService.isLogged()" >
+  <div *ngIf="isLogged()" >
       <ion-button  (click)="logoutClicked()">Logout</ion-button>
       
     </div>

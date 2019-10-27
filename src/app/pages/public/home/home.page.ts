@@ -29,4 +29,15 @@ export class HomePage {
     this.authService.logout();
   }
 
+  isLogged(): boolean {
+    let logged = false;
+     this.authService.getIsLogged().subscribe(
+      (data) => {
+        console.log(data);
+        logged = data;
+      }
+    );
+    console.log(logged);
+    return logged;
+  }
 }

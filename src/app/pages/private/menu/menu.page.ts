@@ -14,10 +14,13 @@ export class MenuPage implements OnInit {
   }
 
   ngOnInit() {
-    if (this.authService.isLogged() === false){
-      this.nav.navigateRoot('home');
+   /*this.authService.getIsLogged().subscribe((result) => {
+     console.log('menu '+result);
+     if (result === false) {
+    this.nav.navigateRoot('home');
+     }
+   });*/
     
-    }
   }
 
   logoutClicked()
@@ -28,6 +31,16 @@ export class MenuPage implements OnInit {
       this.nav.navigateRoot('home');
     }, 500);
     
+  }
+
+  isLogged(): boolean {
+    let logged = false;
+     this.authService.getIsLogged().subscribe(
+      (data) => {     
+        logged = data;
+      }
+    );    
+    return logged;
   }
 
   async showLoading() {
