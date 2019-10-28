@@ -9,37 +9,33 @@ import { LoadingController, NavController  } from '@ionic/angular';
 })
 export class MenuPage implements OnInit {
 
-  constructor(public authService:AuthService, public loadingController: LoadingController,  public nav: NavController ) {     
-  
+  constructor(public authService:  AuthService, public loadingController: LoadingController,  public nav: NavController ) {     
+    this.authService.getIsLogged().subscribe((result) => {
+      console.log('menu ' + result);
+      if (result === false) {
+     this.nav.navigateRoot('home');
+      }
+    });
   }
 
-  ngOnInit() {
-   /*this.authService.getIsLogged().subscribe((result) => {
-     console.log('menu '+result);
-     if (result === false) {
-    this.nav.navigateRoot('home');
-     }
-   });*/
-    
+  ngOnInit() {s
   }
 
-  logoutClicked()
-  {
+  logoutClicked() {
     this.showLoading();
     setTimeout(() => {
       this.authService.logout();
       this.nav.navigateRoot('home');
     }, 500);
-    
   }
 
   isLogged(): boolean {
     let logged = false;
      this.authService.getIsLogged().subscribe(
-      (data) => {     
+      (data) => {
         logged = data;
       }
-    );    
+    );
     return logged;
   }
 

@@ -65,6 +65,7 @@ export class AuthService {
       token: ""
     };
     this.lastLoginErrorMessage = null;
+    this.checkLogged();
   }
 
   /**

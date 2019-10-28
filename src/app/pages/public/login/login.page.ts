@@ -28,10 +28,11 @@ export class LoginPage implements OnInit {
         console.log(data);
         if (data === true)
         {
-          this.nav.navigateRoot('menu');
+        
           if ( this.viewCtrl != null){
             this.dismiss();
           }
+          this.nav.navigateRoot('menu');
       
         }
         else
