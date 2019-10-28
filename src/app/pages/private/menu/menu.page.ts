@@ -18,7 +18,7 @@ export class MenuPage implements OnInit {
     });
   }
 
-  ngOnInit() {s
+  ngOnInit() {
   }
 
   logoutClicked() {
