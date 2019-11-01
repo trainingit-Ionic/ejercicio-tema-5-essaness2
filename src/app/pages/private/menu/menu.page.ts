@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { LoadingController, NavController  } from '@ionic/angular';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-menu',
@@ -9,16 +10,19 @@ import { LoadingController, NavController  } from '@ionic/angular';
 })
 export class MenuPage implements OnInit {
 
+  isLogged: boolean;
+  
   constructor(public authService:  AuthService, public loadingController: LoadingController,  public nav: NavController ) {     
     this.authService.getIsLogged().subscribe((result) => {
       console.log('menu ' + result);
-      if (result === false) {
-     this.nav.navigateRoot('home');
-      }
+      this.isLogged = result;
+    //   if (result === false) {
+    //  this.nav.navigateRoot('home');
+    // }
     });
   }
 
-  ngOnInit() {s
+  ngOnInit() {
   }
 
   logoutClicked() {
@@ -29,15 +33,15 @@ export class MenuPage implements OnInit {
     }, 500);
   }
 
-  isLogged(): boolean {
-    let logged = false;
-     this.authService.getIsLogged().subscribe(
-      (data) => {
-        logged = data;
-      }
-    );
-    return logged;
-  }
+  // isLogged(): boolean {
+  //   let logged = false;
+  //    this.authService.getIsLogged().subscribe(
+  //     (data) => {
+  //       logged = data;
+  //     }
+  //   );
+  //   return logged;
+  // }
 
   async showLoading() {
     const loading = await this.loadingController.create({
