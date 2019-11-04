@@ -11,12 +11,12 @@
 
 <ion-content padding>
   <p>Best app in world.</p>
-  <div *ngIf="!isLogged()" >
+  <div *ngIf="!isLogged" >
     <ion-button routerLink="/login" routerDirection="root">Go To Login</ion-button>
 
     <ion-button (click)="presentModal()">Go To Login Modal</ion-button>
   </div>
-  <div *ngIf="isLogged()" >
+  <div *ngIf="isLogged" >
       <ion-button  (click)="logoutClicked()">Logout</ion-button>
       
     </div>
